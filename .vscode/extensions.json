@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "naumovs.color-highlight",
+    "dbaeumer.vscode-eslint",
+    "msjsdiag.debugger-for-chrome",
+    "emilast.logfilehighlighter",
+    "esbenp.prettier-vscode",
+    "wix.vscode-import-cost",
+    "theshukran.theshukran-react-utils"
+  ]
+}

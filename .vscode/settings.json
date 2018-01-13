@@ -1,0 +1,21 @@
+{
+  // Place your settings in this file to overwrite default and user settings.
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "editor.snippetSuggestions": "top",
+
+  "relativePath.removeExtension": true,
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/STYLES": true,
+    "**/Layouts": true,
+    "**/dist": true,
+    "**/OE.SharePoint": true
+  }
+}
