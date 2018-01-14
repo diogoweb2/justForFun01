@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { InputCurrency } from "../components/InputCurrency";
-import { SelectCurrency } from "../components/SelectCurrency";
+import InputCurrency from "../components/InputCurrency";
+import SelectCurrency from "../components/SelectCurrency";
 
 const App = ({
   currencyValIn,
@@ -14,22 +14,10 @@ const App = ({
   setCurrencyOut
 }) => (
   <div>
-    <InputCurrency
-      onChange={e => setCurrencyValIn(e.target.value)}
-      value={currencyValIn}
-    />
-    <SelectCurrency
-      value={currencyIn}
-      onChange={e => setCurrencyIn(e.target.value)}
-    />
-    <InputCurrency
-      onChange={e => setCurrencyValOut(e.target.value)}
-      value={currencyValOut}
-    />
-    <SelectCurrency
-      value={currencyOut}
-      onChange={e => setCurrencyOut(e.target.value)}
-    />
+    <InputCurrency onChange={setCurrencyValIn} value={currencyValIn} />
+    <SelectCurrency value={currencyIn} onChange={setCurrencyIn} />
+    <InputCurrency onChange={setCurrencyValOut} value={currencyValOut} />
+    <SelectCurrency value={currencyOut} onChange={setCurrencyOut} />
   </div>
 );
 

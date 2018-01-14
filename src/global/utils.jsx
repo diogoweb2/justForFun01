@@ -9,8 +9,6 @@ import thunk from "redux-thunk";
 import "./sharepoint-structure.css";
 import "./corev15.css";
 
-export { default as DateHelper } from "fecha"; // https://github.com/taylorhakes/fecha
-export { default as FilterHelper } from "./helpers/FilterHelper";
 export { default as WebAPI } from "./helpers/WebAPI";
 export { SharepointVars } from "./constants";
 export { default as createReducer, createAction } from "./helpers/Redux";
@@ -80,20 +78,7 @@ const utils = {
     if (loadedStates.indexOf(document.readyState) >= 0 && document.body) {
       this.renderAfterDOMload(classToRender, Component, props, conf);
     } else {
-      window.addEventListener(
-        "DOMContentLoaded",
-        () => {
-          if (conf && conf.mockJson && DEV_ENV) {
-            import(`./jsonMocks/${conf.mockJson}`).then(getMocks => {
-              getMocks.default({});
-              this.renderAfterDOMload(classToRender, Component, props, conf);
-            });
-          } else {
-            this.renderAfterDOMload(classToRender, Component, props, conf);
-          }
-        },
-        false
-      );
+      window.addEventListener("DOMContentLoaded", () => {}, false);
     }
   },
 

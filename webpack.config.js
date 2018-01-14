@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== undefined) {
 module.exports = {
   entry: {
     react: ["react", "react-dom"],
-    HD: "./src/widgets/HD/index.jsx"
+    HD: "./src/index.jsx"
   },
   module: {
     rules: [

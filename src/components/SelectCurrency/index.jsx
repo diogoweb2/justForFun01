@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const SelectCurrency = ({ currencies, onChange, value }) => (
-  <select onChange={onChange}>
+  <select value={value} onChange={e => onChange(e.target.value)}>
     {currencies.map(currency => (
-      <option selected={currency === value} value={currency}>
+      <option key={currency} value={currency}>
         {currency}
       </option>
     ))}

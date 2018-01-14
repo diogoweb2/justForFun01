@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const InputCurrency = ({ value, onChange }) => (
-  <input onChange={onChange} type="text" value={value} />
+  <input onChange={e => onChange(e.target.value)} type="text" value={value} />
 );
 
 InputCurrency.propTypes = {
