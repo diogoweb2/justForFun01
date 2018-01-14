@@ -9,6 +9,12 @@
     "react/jsx-wrap-multilines": 0,
     "no-debugger": 0,
     "import/no-unresolved": 0,
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
     "prefer-destructuring": [
       "error",
       {

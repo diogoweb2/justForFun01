@@ -5,15 +5,37 @@ import {
   setCurrencyValIn,
   setCurrencyValOut,
   setCurrencyIn,
-  setCurrencyOut
+  setCurrencyOut,
+  getCurrencyData
 } from "../actions/currencyActions";
 
-const mapStateToProps = state => ({
-  currencyOut: state.currencyReducer.currencyOut,
-  currencyValOut: state.currencyReducer.currencyValOut,
-  currencyIn: state.currencyReducer.currencyIn,
-  currencyValIn: state.currencyReducer.currencyValIn
-});
+const calc = (currencyOut, currencyIn, currencyValIn, currencyData) => {
+  try {
+    const rate =
+      currencyData.rates[currencyOut] / currencyData.rates[currencyIn];
+
+    return (rate * currencyValIn).toFixed(2);
+  } catch (error) {
+    return 0;
+  }
+};
+const mapStateToProps = state => {
+  const {
+    currencyOut,
+    currencyIn,
+    currencyValIn,
+    currencyData,
+    dataLoaded
+  } = state;
+
+  return {
+    currencyOut,
+    currencyValOut: calc(currencyOut, currencyIn, currencyValIn, currencyData),
+    currencyIn,
+    currencyValIn,
+    dataLoaded
+  };
+};
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
@@ -21,7 +43,8 @@ const mapDispatchToProps = dispatch =>
       setCurrencyValIn,
       setCurrencyValOut,
       setCurrencyIn,
-      setCurrencyOut
+      setCurrencyOut,
+      getCurrencyData
     },
     dispatch
   );
