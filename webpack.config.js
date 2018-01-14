@@ -1,7 +1,9 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
+// //const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+// const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 const prodLayoutFolder =
   "../../Bgrs.RA.SP.Branding/Layouts/Bgrs.RA.SP.Branding/";
@@ -14,7 +16,7 @@ if (process.env.NODE_ENV !== undefined) {
 module.exports = {
   entry: {
     react: ["react", "react-dom"],
-    Messages: "./src/widgets/Messages/index.jsx"
+    HD: "./src/widgets/HD/index.jsx"
   },
   module: {
     rules: [
@@ -72,10 +74,21 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ["react"],
-      chunks: ["Messages"],
+      chunks: ["HD"],
       minChunks: 2
     }),
-
+    // new webpack.optimize.UglifyJsPlugin(),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: "vendor",
+    //   // filename: isProd
+    //   //   ? `${prodLayoutFolder}commons.js`
+    //   //   : "../Layouts/JSWP/commons.js",
+    //   // // chunks: ["hamburguerBtn2", "Menu"],
+    //   minChunks: function(module) {
+    //     // this assumes your vendor imports exist in the node_modules directory
+    //     return module.context && module.context.indexOf("node_modules") !== -1;
+    //   }
+    // }),
     new WriteFilePlugin(),
     new ExtractTextPlugin({
       filename: isProd ? `${prodStyleFolder}[name].css` : "../STYLES/[name].css"

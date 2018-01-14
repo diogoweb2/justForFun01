@@ -71,7 +71,7 @@
       "<rootDir>/dist/",
       "<rootDir>/STYLES/"
     ],
-
+    "snapshotSerializers": ["jest-serializer-html"],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
         "<rootDir>/tools/assetsTransformer.js",
@@ -135,29 +135,22 @@
     "write-file-webpack-plugin": "^4.0.0"
   },
   "dependencies": {
-    "assert": "^1.4.1",
     "axios": "^0.17.1",
     "axios-cache-adapter": "^2.0.0",
     "axios-mock-adapter": "^1.10",
     "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
     "faker": "^4.1.0",
-    "fecha": "^2.3",
-    "js-search": "^1.4.2",
-    "material-ui": "material-ui@next",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "natsort": "^1.0.6",
+
     "prop-types": "^15.5.10",
-    "pubsub-js": "^1.5.7",
+
     "react": "^16.1",
     "react-dom": "^16.1",
     "react-redux": "^5.0.6",
-    "react-responsive": "^4.0.3",
-    "react-swipeable-views": "^0.12",
+
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "url-search-params": "^0.10.0"
+
+    "redux-thunk": "^2.2.0"
   },
   "false": {}
 }

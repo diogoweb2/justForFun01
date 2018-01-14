@@ -1,14 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
 import ES6Promise from "es6-promise";
-import PubSub from "pubsub-js";
-import { MuiThemeProvider } from "material-ui/styles";
+
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-
-import * as Constants from "./constants";
-import ThemeCSS from "./themeCSS";
 
 import "./sharepoint-structure.css";
 import "./corev15.css";
@@ -22,14 +18,6 @@ export { default as createReducer, createAction } from "./helpers/Redux";
 ES6Promise.polyfill();
 
 const utils = {
-  getEventName: () => Constants.EventEmitterName,
-  // subscribe to an event
-  eventSubscribe: (eventID, eventName) => PubSub.subscribe(eventID, eventName),
-  // unsubscribe to an event
-  eventUnsubscribe: eventID => PubSub.unsubscribe(eventID),
-  // trigger the event
-  eventTrigger: (eventID, param) => PubSub.publish(eventID, param),
-
   // add an event to a DOM element with id
   addEventListener: (eventName, controlID, eventID, param) => {
     document.addEventListener(eventName, e => {
@@ -68,18 +56,14 @@ const utils = {
       render(
         conf && conf.store ? (
           <Provider store={conf.store}>
-            <MuiThemeProvider theme={ThemeCSS}>
-              <div>
-                <Component hiddenJson={hiddenJson} {...props} />
-              </div>
-            </MuiThemeProvider>
-          </Provider>
-        ) : (
-          <MuiThemeProvider theme={ThemeCSS}>
             <div>
               <Component hiddenJson={hiddenJson} {...props} />
             </div>
-          </MuiThemeProvider>
+          </Provider>
+        ) : (
+          <div>
+            <Component hiddenJson={hiddenJson} {...props} />
+          </div>
         ),
         classToRenderArr[i]
       );
