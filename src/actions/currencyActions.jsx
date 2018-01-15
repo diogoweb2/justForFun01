@@ -2,6 +2,7 @@ import createAction from "../helpers/Redux";
 
 export const setCurrencyValIn = createAction("SET_CURRENCY_VAL_IN", "value");
 export const setCurrencyIn = createAction("SET_CURRENCY_IN", "value");
+export const setModalDisclaimer = createAction("SET_HANDLE_DISCLAIMER_MODAL");
 export const setCurrencyValOut = createAction("SET_CURRENCY_VAL_OUT", "value");
 export const setCurrencyOut = createAction("SET_CURRENCY_OUT", "value");
 export const fetchSuccess = createAction("FETCH_API_SUCCESS", "currencyData");

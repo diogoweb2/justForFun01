@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import InputCurrency from "../components/InputCurrency";
 import SelectCurrency from "../components/SelectCurrency";
 import Label from "../components/Label";
+import Modal from "../components/Modal";
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,7 +20,9 @@ class App extends React.Component {
       setCurrencyIn,
       setCurrencyValOut,
       setCurrencyOut,
-      dataLoaded
+      dataLoaded,
+      setModalDisclaimer,
+      showModalDisclaimer
     } = this.props;
     return !dataLoaded ? (
       <div>loading...</div>
@@ -57,6 +60,13 @@ class App extends React.Component {
             <SelectCurrency value={currencyOut} onChange={setCurrencyOut} />
           </div>
         </div>
+        <Modal
+          show={showModalDisclaimer}
+          handleVisibility={setModalDisclaimer}
+          title="Disclaimer"
+        >
+          test
+        </Modal>
       </div>
     );
   }
@@ -71,7 +81,9 @@ App.propTypes = {
   setCurrencyValOut: PropTypes.func.isRequired,
   setCurrencyOut: PropTypes.func.isRequired,
   getCurrencyData: PropTypes.func.isRequired,
-  dataLoaded: PropTypes.bool.isRequired
+  dataLoaded: PropTypes.bool.isRequired,
+  setModalDisclaimer: PropTypes.func.isRequired,
+  showModalDisclaimer: PropTypes.bool.isRequired
 };
 
 export default App;

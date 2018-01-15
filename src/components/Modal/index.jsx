@@ -1,0 +1,58 @@
+import React from "react";
+import PropTypes from "prop-types";
+import Button from "../Button";
+
+const Modal = ({ title, children, handleVisibility, show }) => {
+  if (!show) {
+    return (
+      <span
+        onClick={handleVisibility}
+        role="link"
+        onKeyDown={handleVisibility}
+        tabIndex="0"
+      >
+        title
+      </span>
+    );
+  }
+  return (
+    <div>
+      <section
+        role="dialog"
+        tabIndex="-1"
+        aria-labelledby="modal-heading-01"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+        className="slds-modal slds-fade-in-open"
+      >
+        <div className="slds-modal__container">
+          <header className="slds-modal__header">
+            <h2 className="slds-text-heading_medium slds-hyphenate">{title}</h2>
+          </header>
+          <div className="slds-modal__content slds-p-around_medium">
+            {children}
+          </div>
+          <footer className="slds-modal__footer">
+            <Button onClick={handleVisibility} type="secundary">
+              Close
+            </Button>
+          </footer>
+        </div>
+      </section>
+      <div className="slds-backdrop slds-backdrop_open" />
+    </div>
+  );
+};
+
+Modal.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.number.isRequired,
+  handleVisibility: PropTypes.func.isRequired,
+  show: PropTypes.bool
+};
+
+Modal.defaultProps = {
+  show: false
+};
+
+export default Modal;

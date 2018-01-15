@@ -31,7 +31,11 @@
       ],
       "react"
     ],
-    "plugins": ["transform-object-rest-spread", "transform-object-assign"],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-object-assign",
+      "transform-class-properties"
+    ],
     "env": {
       "test": {
         "presets": ["es2015", "stage-2", "react"],

@@ -4,6 +4,7 @@ const defaultState = {
   currencyIn: "CAD",
   currencyOut: "USD",
   dataLoaded: false,
+  showModalDisclaimer: false,
   currencyData: {
     date: "2018-01-12",
     rates: {
@@ -43,6 +44,11 @@ const currencyReducer = (state = defaultState, action) => {
       return Object.assign({}, state, {
         dataLoaded: true,
         currencyData: action.currencyData
+      });
+
+    case "SET_HANDLE_DISCLAIMER_MODAL":
+      return Object.assign({}, state, {
+        showModalDisclaimer: !state.showModalDisclaimer
       });
 
     default:

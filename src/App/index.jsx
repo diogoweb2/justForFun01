@@ -6,7 +6,8 @@ import {
   setCurrencyValOut,
   setCurrencyIn,
   setCurrencyOut,
-  getCurrencyData
+  getCurrencyData,
+  setModalDisclaimer
 } from "../actions/currencyActions";
 
 const calc = (currencyOut, currencyIn, currencyValIn, currencyData) => {
@@ -25,7 +26,8 @@ const mapStateToProps = state => {
     currencyIn,
     currencyValIn,
     currencyData,
-    dataLoaded
+    dataLoaded,
+    showModalDisclaimer
   } = state;
 
   return {
@@ -33,7 +35,8 @@ const mapStateToProps = state => {
     currencyValOut: calc(currencyOut, currencyIn, currencyValIn, currencyData),
     currencyIn,
     currencyValIn,
-    dataLoaded
+    dataLoaded,
+    showModalDisclaimer
   };
 };
 
@@ -44,7 +47,8 @@ const mapDispatchToProps = dispatch =>
       setCurrencyValOut,
       setCurrencyIn,
       setCurrencyOut,
-      getCurrencyData
+      getCurrencyData,
+      setModalDisclaimer
     },
     dispatch
   );
