@@ -5,14 +5,9 @@ import Button from "../Button";
 const Modal = ({ title, children, handleVisibility, show }) => {
   if (!show) {
     return (
-      <span
-        onClick={handleVisibility}
-        role="link"
-        onKeyDown={handleVisibility}
-        tabIndex="0"
-      >
-        title
-      </span>
+      <Button onClick={handleVisibility} type="link">
+        {title}
+      </Button>
     );
   }
   return (
@@ -46,7 +41,7 @@ const Modal = ({ title, children, handleVisibility, show }) => {
 
 Modal.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
   handleVisibility: PropTypes.func.isRequired,
   show: PropTypes.bool
 };

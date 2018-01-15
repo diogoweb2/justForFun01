@@ -5,6 +5,9 @@ const Button = ({ onClick, children, type }) => {
   let typeClass;
 
   switch (type.toLowerCase()) {
+    case "link":
+      typeClass = "";
+      break;
     case "secondary":
       typeClass = "slds-button_neutral";
       break;

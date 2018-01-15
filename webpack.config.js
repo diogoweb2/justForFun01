@@ -8,6 +8,11 @@ if (process.env.NODE_ENV !== undefined) {
   isProd = process.env.NODE_ENV.trim() === "production";
 }
 
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
+});
+
 module.exports = {
   entry: {
     react: ["react", "react-dom"],
@@ -16,10 +21,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader?sourceMap",
-          use: [{ loader: "css-loader", options: { importLoaders: 1 } }]
+        test: /\.scss$/,
+        use: extractSass.extract({
+          use: [
+            {
+              loader: "css-loader"
+            },
+            {
+              loader: "sass-loader"
+            }
+          ],
+          // use style-loader in development
+          fallback: "style-loader"
         })
       },
       {

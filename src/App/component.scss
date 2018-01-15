@@ -1,0 +1,9 @@
+@import "../styles/global.scss";
+
+.currencyWrap {
+  @extend %wrap-box;
+}
+
+h1 {
+  font-size: $h1-size;
+}

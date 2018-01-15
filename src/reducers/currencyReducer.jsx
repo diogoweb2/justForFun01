@@ -1,6 +1,6 @@
 const defaultState = {
-  currencyValIn: 0,
-  currencyValOut: 0,
+  currencyValIn: "",
+  currencyValOut: "",
   currencyIn: "CAD",
   currencyOut: "USD",
   dataLoaded: false,

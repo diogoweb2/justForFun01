@@ -4,6 +4,7 @@ import InputCurrency from "../components/InputCurrency";
 import SelectCurrency from "../components/SelectCurrency";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
+import "./component.scss";
 
 class App extends React.Component {
   componentDidMount() {
@@ -27,28 +28,29 @@ class App extends React.Component {
     return !dataLoaded ? (
       <div>loading...</div>
     ) : (
-      <div>
+      <div className="currencyWrap">
+        <h1>Currency Converter</h1>
         <div className="slds-grid slds-gutters slds-wrap">
           <div className="slds-col slds-size_3-of-3">
             <Label htmlFor="currencyValIn">
               Type in amount and select currency:
             </Label>
           </div>
-          <div className="slds-col slds-size_2-of-3">
+          <div className="slds-col slds-size_3-of-3 slds-medium-size_2-of-3 ">
             <InputCurrency
               id="currencyValIn"
               onChange={setCurrencyValIn}
               value={currencyValIn}
             />
           </div>
-          <div className="slds-col slds-size_1-of-3">
+          <div className="slds-col slds-size_3-of-3 slds-medium-size_1-of-3 ">
             <SelectCurrency value={currencyIn} onChange={setCurrencyIn} />
           </div>
 
-          <div className="slds-col slds-size_3-of-3">
+          <div className="slds-col slds-size_3-of-3  ">
             <Label htmlFor="setCurrencyValOut">Converted amount:</Label>
           </div>
-          <div className="slds-col slds-size_2-of-3">
+          <div className="slds-col slds-size_3-of-3 slds-medium-size_2-of-3">
             <InputCurrency
               id="setCurrencyValOut"
               disable
@@ -56,7 +58,7 @@ class App extends React.Component {
               value={currencyValOut}
             />
           </div>
-          <div className="slds-col slds-size_1-of-3">
+          <div className="slds-col slds-size_3-of-3 slds-medium-size_1-of-3 ">
             <SelectCurrency value={currencyOut} onChange={setCurrencyOut} />
           </div>
         </div>
@@ -65,16 +67,16 @@ class App extends React.Component {
           handleVisibility={setModalDisclaimer}
           title="Disclaimer"
         >
-          test
+          Disclaimer msg...
         </Modal>
       </div>
     );
   }
 }
 App.propTypes = {
-  currencyValIn: PropTypes.number.isRequired,
+  currencyValIn: PropTypes.string.isRequired,
   currencyIn: PropTypes.string.isRequired,
-  currencyValOut: PropTypes.number.isRequired,
+  currencyValOut: PropTypes.string.isRequired,
   currencyOut: PropTypes.string.isRequired,
   setCurrencyValIn: PropTypes.func.isRequired,
   setCurrencyIn: PropTypes.func.isRequired,
