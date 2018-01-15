@@ -12,7 +12,7 @@ export const fetchError = createAction("FETCH_API_ERROR");
 export const getCurrencyData = () => dispatch => {
   dispatch(fetchPending());
 
-  fetch("https://api.fixer.io/latest?base=CAD&symbols=USD,EUR", {
+  return fetch("https://api.fixer.io/latest?base=CAD&symbols=USD,EUR", {
     method: "get"
   })
     .then(response => {

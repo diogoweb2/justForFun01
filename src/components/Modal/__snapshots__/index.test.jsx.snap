@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should match snapshot closed... 1`] = `
+<Button
+  type="link"
+>
+  test title
+</Button>
+`;
+
+exports[`Modal should match snapshot opened... 1`] = `
+<div>
+  <section
+    aria-describedby="modal-content-id-1"
+    aria-labelledby="modal-heading-01"
+    aria-modal="true"
+    className="slds-modal slds-fade-in-open"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className="slds-modal__container"
+    >
+      <header
+        className="slds-modal__header"
+      >
+        <h2
+          className="slds-text-heading_medium slds-hyphenate"
+        >
+          test title
+        </h2>
+      </header>
+      <div
+        className="slds-modal__content slds-p-around_medium"
+      >
+        test
+      </div>
+      <footer
+        className="slds-modal__footer"
+      >
+        <Button
+          type="secundary"
+        >
+          Close
+        </Button>
+      </footer>
+    </div>
+  </section>
+  <div
+    className="slds-backdrop slds-backdrop_open"
+  />
+</div>
+`;

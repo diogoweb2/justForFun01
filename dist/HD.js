@@ -1,8 +1,7 @@
 webpackJsonp([0],[
 /* 0 */,
 /* 1 */,
-/* 2 */,
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -37,6 +36,7 @@ if (process.env.NODE_ENV !== 'production') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+/* 3 */,
 /* 4 */,
 /* 5 */,
 /* 6 */,
@@ -582,7 +582,7 @@ function createConnect() {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subscriptionShape; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return storeShape; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -1429,7 +1429,7 @@ for (var i = 0; i < testClassToRender.length; i += 1) {
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = createProvider;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(11);
@@ -1521,7 +1521,7 @@ function createProvider() {
 
 
 
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 var invariant = __webpack_require__(6);
 var warning = __webpack_require__(8);
 var assign = __webpack_require__(5);
@@ -2071,7 +2071,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 var invariant = __webpack_require__(6);
 var ReactPropTypesSecret = __webpack_require__(10);
 
@@ -4648,11 +4648,20 @@ var _component = __webpack_require__(87);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _currencyActions = __webpack_require__(93);
+var _currencyActions = __webpack_require__(100);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var calc = function calc(currencyOut, currencyIn, currencyValIn, currencyData) {
+/**
+ *Calculate exchange
+ *
+ * @param {number} currencyOut - currency to be converted
+ * @param {string} currencyIn - original currency
+ * @param {number} currencyValIn - value to be converted
+ * @param {array} currencyData
+ * @returns {number}
+ */
+function calc(currencyOut, currencyIn, currencyValIn, currencyData) {
   try {
     var rate = currencyData.rates[currencyOut] / currencyData.rates[currencyIn];
 
@@ -4660,7 +4669,7 @@ var calc = function calc(currencyOut, currencyIn, currencyValIn, currencyData) {
   } catch (err) {
     return 0;
   }
-};
+}
 var mapStateToProps = function mapStateToProps(state) {
   var currencyOut = state.currencyOut,
       currencyIn = state.currencyIn,
@@ -4712,7 +4721,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4732,13 +4741,13 @@ var _Modal = __webpack_require__(91);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
-__webpack_require__(95);
+__webpack_require__(93);
 
-var _ErrorUX = __webpack_require__(100);
+var _ErrorUX = __webpack_require__(98);
 
 var _ErrorUX2 = _interopRequireDefault(_ErrorUX);
 
-var _Loading = __webpack_require__(101);
+var _Loading = __webpack_require__(99);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -4900,7 +4909,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4954,7 +4963,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5016,7 +5025,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5034,6 +5043,9 @@ var Label = function Label(_ref) {
 
 Label.propTypes = {
   children: _propTypes2.default.node.isRequired,
+  /**
+   * htmlFor - related input id
+   */
   htmlFor: _propTypes2.default.string.isRequired
 };
 
@@ -5054,7 +5066,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5123,9 +5135,18 @@ var Modal = function Modal(_ref) {
 };
 
 Modal.propTypes = {
+  /**
+   * Modal Title
+   */
   title: _propTypes2.default.string.isRequired,
   children: _propTypes2.default.node.isRequired,
+  /**
+   * event to handle open/close
+   */
   handleVisibility: _propTypes2.default.func.isRequired,
+  /**
+   * show or hide
+   */
   show: _propTypes2.default.bool
 };
 
@@ -5150,7 +5171,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5187,7 +5208,11 @@ var Button = function Button(_ref) {
 
 Button.propTypes = {
   onClick: _propTypes2.default.func.isRequired,
+
   children: _propTypes2.default.node.isRequired,
+  /**
+   * values: primary, link, secondary
+   */
   type: _propTypes2.default.string
 };
 
@@ -5201,90 +5226,10 @@ exports.default = Button;
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getCurrencyData = exports.fetchError = exports.fetchPending = exports.fetchSuccess = exports.setCurrencyOut = exports.setCurrencyValOut = exports.setModalDisclaimer = exports.setCurrencyIn = exports.setCurrencyValIn = undefined;
-
-var _Redux = __webpack_require__(94);
-
-var _Redux2 = _interopRequireDefault(_Redux);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var setCurrencyValIn = exports.setCurrencyValIn = (0, _Redux2.default)("SET_CURRENCY_VAL_IN", "value");
-var setCurrencyIn = exports.setCurrencyIn = (0, _Redux2.default)("SET_CURRENCY_IN", "value");
-var setModalDisclaimer = exports.setModalDisclaimer = (0, _Redux2.default)("SET_HANDLE_DISCLAIMER_MODAL");
-var setCurrencyValOut = exports.setCurrencyValOut = (0, _Redux2.default)("SET_CURRENCY_VAL_OUT", "value");
-var setCurrencyOut = exports.setCurrencyOut = (0, _Redux2.default)("SET_CURRENCY_OUT", "value");
-var fetchSuccess = exports.fetchSuccess = (0, _Redux2.default)("FETCH_API_SUCCESS", "currencyData");
-var fetchPending = exports.fetchPending = (0, _Redux2.default)("FETCH_API_PENDING");
-var fetchError = exports.fetchError = (0, _Redux2.default)("FETCH_API_ERROR");
-
-var getCurrencyData = exports.getCurrencyData = function getCurrencyData() {
-  return function (dispatch) {
-    dispatch(fetchPending());
-
-    fetch("https://api.fixer.io/latest?base=CAD&symbols=USD,EUR", {
-      method: "get"
-    }).then(function (response) {
-      if (!response.ok) {
-        dispatch(fetchError());
-      }
-
-      return response;
-    }).then(function (response) {
-      return response.json();
-    }).then(function (currencyData) {
-      // add base currency to rates array
-      currencyData.rates[currencyData.base] = 1;
-      return dispatch(fetchSuccess(currencyData));
-    }).catch(function () {
-      return dispatch(fetchError());
-    });
-  };
-};
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createAction;
-function createAction(type) {
-  for (var _len = arguments.length, argNames = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    argNames[_key - 1] = arguments[_key];
-  }
-
-  return function () {
-    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      args[_key2] = arguments[_key2];
-    }
-
-    var action = { type: type };
-    argNames.forEach(function (arg, index) {
-      action[argNames[index]] = args[index];
-    });
-    return action;
-  };
-}
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(96);
+var content = __webpack_require__(94);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -5292,7 +5237,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(98)(content, options);
+var update = __webpack_require__(96)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -5309,10 +5254,10 @@ if(false) {
 }
 
 /***/ }),
-/* 96 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(97)(undefined);
+exports = module.exports = __webpack_require__(95)(undefined);
 // imports
 
 
@@ -5323,7 +5268,7 @@ exports.push([module.i, ".currencyWrap {\n  border: 1px solid #999999;\n  backgr
 
 
 /***/ }),
-/* 97 */
+/* 95 */
 /***/ (function(module, exports) {
 
 /*
@@ -5405,7 +5350,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 98 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -5461,7 +5406,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(99);
+var	fixUrls = __webpack_require__(97);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -5777,7 +5722,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 99 */
+/* 97 */
 /***/ (function(module, exports) {
 
 
@@ -5872,7 +5817,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 100 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5886,12 +5831,15 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Show a frindly generic erros to user
+ */
 var ErrorUX = function ErrorUX(_ref) {
   var children = _ref.children;
   return _react2.default.createElement(
@@ -5931,7 +5879,7 @@ ErrorUX.propTypes = {
 exports.default = ErrorUX;
 
 /***/ }),
-/* 101 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5955,6 +5903,86 @@ var Loading = function Loading() {
   );
 };
 exports.default = Loading;
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getCurrencyData = exports.fetchError = exports.fetchPending = exports.fetchSuccess = exports.setCurrencyOut = exports.setCurrencyValOut = exports.setModalDisclaimer = exports.setCurrencyIn = exports.setCurrencyValIn = undefined;
+
+var _Redux = __webpack_require__(101);
+
+var _Redux2 = _interopRequireDefault(_Redux);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var setCurrencyValIn = exports.setCurrencyValIn = (0, _Redux2.default)("SET_CURRENCY_VAL_IN", "value");
+var setCurrencyIn = exports.setCurrencyIn = (0, _Redux2.default)("SET_CURRENCY_IN", "value");
+var setModalDisclaimer = exports.setModalDisclaimer = (0, _Redux2.default)("SET_HANDLE_DISCLAIMER_MODAL");
+var setCurrencyValOut = exports.setCurrencyValOut = (0, _Redux2.default)("SET_CURRENCY_VAL_OUT", "value");
+var setCurrencyOut = exports.setCurrencyOut = (0, _Redux2.default)("SET_CURRENCY_OUT", "value");
+var fetchSuccess = exports.fetchSuccess = (0, _Redux2.default)("FETCH_API_SUCCESS", "currencyData");
+var fetchPending = exports.fetchPending = (0, _Redux2.default)("FETCH_API_PENDING");
+var fetchError = exports.fetchError = (0, _Redux2.default)("FETCH_API_ERROR");
+
+var getCurrencyData = exports.getCurrencyData = function getCurrencyData() {
+  return function (dispatch) {
+    dispatch(fetchPending());
+
+    return fetch("https://api.fixer.io/latest?base=CAD&symbols=USD,EUR", {
+      method: "get"
+    }).then(function (response) {
+      if (!response.ok) {
+        dispatch(fetchError());
+      }
+
+      return response;
+    }).then(function (response) {
+      return response.json();
+    }).then(function (currencyData) {
+      // add base currency to rates array
+      currencyData.rates[currencyData.base] = 1;
+      return dispatch(fetchSuccess(currencyData));
+    }).catch(function () {
+      return dispatch(fetchError());
+    });
+  };
+};
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createAction;
+function createAction(type) {
+  for (var _len = arguments.length, argNames = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    argNames[_key - 1] = arguments[_key];
+  }
+
+  return function () {
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    var action = { type: type };
+    argNames.forEach(function (arg, index) {
+      action[argNames[index]] = args[index];
+    });
+    return action;
+  };
+}
 
 /***/ })
 ],[63]);

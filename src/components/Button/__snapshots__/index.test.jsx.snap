@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match snapshot - Link... 1`] = `
+<button
+  className="slds-button_brand slds-button"
+>
+  OK
+</button>
+`;
+
+exports[`Button should match snapshot - primary... 1`] = `
+<button
+  className="slds-button_brand slds-button"
+>
+  OK
+</button>
+`;
+
+exports[`Button should match snapshot - secondary... 1`] = `
+<button
+  className="slds-button_neutral slds-button"
+>
+  OK
+</button>
+`;

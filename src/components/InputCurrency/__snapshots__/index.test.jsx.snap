@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputCurrency should match snapshot... 1`] = `
+<input
+  className="slds-input"
+  disable="false"
+  onChange={[Function]}
+  placeholder="0.00"
+  type="number"
+  value="test"
+/>
+`;

@@ -8,7 +8,8 @@
     "start": "webpack-dev-server",
     "build": "webpack -p",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "test": "jest  --watch"
   },
   "keywords": [],
   "author": "Diogo Lopes",
@@ -55,12 +56,12 @@
     "snapshotSerializers": ["jest-serializer-html"],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/tools/assetsTransformer.js",
-      "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js",
+        "<rootDir>/src/helpers/assetsTransformer.js",
+      "\\.(css|scss)$": "<rootDir>/src/helpers/assetsTransformer.js",
       "^__GLOBAL__(.*)$": "<rootDir>/src/global/$1",
       "^__SHARED__(.*)$": "<rootDir>/src/sharedJSX/$1"
     },
-    "setupFiles": ["./tools/enzymeTestAdapterSetup.js"]
+    "setupFiles": ["./src/helpers/enzymeTestAdapterSetup.js"]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

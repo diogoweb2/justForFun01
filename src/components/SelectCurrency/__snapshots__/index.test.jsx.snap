@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectCurrency should match snapshot... 1`] = `
+<div
+  className="slds-select_container"
+>
+  <select
+    className="slds-select"
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      key="CAD"
+      value="CAD"
+    >
+      CAD
+    </option>
+    <option
+      key="USD"
+      value="USD"
+    >
+      USD
+    </option>
+  </select>
+</div>
+`;
