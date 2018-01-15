@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 const InputCurrency = ({ value, onChange, disable, id }) => (
   <input
+    type="number"
     disable={disable.toString()}
     onChange={e => onChange(e.target.value)}
-    type="text"
     id={id}
     className="slds-input"
     placeholder="0.00"

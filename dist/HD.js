@@ -4567,6 +4567,7 @@ var defaultState = {
   currencyIn: "CAD",
   currencyOut: "USD",
   dataLoaded: false,
+  apiError: false,
   showModalDisclaimer: false,
   currencyData: {
     date: "2018-01-12",
@@ -4616,6 +4617,10 @@ var currencyReducer = function currencyReducer() {
       return _extends({}, state, {
         showModalDisclaimer: !state.showModalDisclaimer
       });
+    case "FETCH_API_ERROR":
+      return _extends({}, state, {
+        apiError: true
+      });
 
     default:
       return state;
@@ -4652,7 +4657,7 @@ var calc = function calc(currencyOut, currencyIn, currencyValIn, currencyData) {
     var rate = currencyData.rates[currencyOut] / currencyData.rates[currencyIn];
 
     return (rate * currencyValIn).toFixed(2);
-  } catch (error) {
+  } catch (err) {
     return 0;
   }
 };
@@ -4662,7 +4667,8 @@ var mapStateToProps = function mapStateToProps(state) {
       currencyValIn = state.currencyValIn,
       currencyData = state.currencyData,
       dataLoaded = state.dataLoaded,
-      showModalDisclaimer = state.showModalDisclaimer;
+      showModalDisclaimer = state.showModalDisclaimer,
+      apiError = state.apiError;
 
 
   return {
@@ -4671,7 +4677,8 @@ var mapStateToProps = function mapStateToProps(state) {
     currencyIn: currencyIn,
     currencyValIn: currencyValIn,
     dataLoaded: dataLoaded,
-    showModalDisclaimer: showModalDisclaimer
+    showModalDisclaimer: showModalDisclaimer,
+    apiError: apiError
   };
 };
 
@@ -4727,6 +4734,14 @@ var _Modal2 = _interopRequireDefault(_Modal);
 
 __webpack_require__(95);
 
+var _ErrorUX = __webpack_require__(100);
+
+var _ErrorUX2 = _interopRequireDefault(_ErrorUX);
+
+var _Loading = __webpack_require__(101);
+
+var _Loading2 = _interopRequireDefault(_Loading);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4763,13 +4778,21 @@ var App = function (_React$Component) {
           setCurrencyOut = _props.setCurrencyOut,
           dataLoaded = _props.dataLoaded,
           setModalDisclaimer = _props.setModalDisclaimer,
-          showModalDisclaimer = _props.showModalDisclaimer;
+          showModalDisclaimer = _props.showModalDisclaimer,
+          apiError = _props.apiError;
 
-      return !dataLoaded ? _react2.default.createElement(
-        "div",
-        null,
-        "loading..."
-      ) : _react2.default.createElement(
+
+      if (apiError) {
+        return _react2.default.createElement(
+          _ErrorUX2.default,
+          null,
+          " Generic error msg for API failure.... "
+        );
+      }
+      if (!dataLoaded) {
+        return _react2.default.createElement(_Loading2.default, null);
+      }
+      return _react2.default.createElement(
         "div",
         { className: "currencyWrap" },
         _react2.default.createElement(
@@ -4856,7 +4879,8 @@ App.propTypes = {
   getCurrencyData: _propTypes2.default.func.isRequired,
   dataLoaded: _propTypes2.default.bool.isRequired,
   setModalDisclaimer: _propTypes2.default.func.isRequired,
-  showModalDisclaimer: _propTypes2.default.bool.isRequired
+  showModalDisclaimer: _propTypes2.default.bool.isRequired,
+  apiError: _propTypes2.default.bool.isRequired
 };
 
 exports.default = App;
@@ -4888,11 +4912,11 @@ var InputCurrency = function InputCurrency(_ref) {
       disable = _ref.disable,
       id = _ref.id;
   return _react2.default.createElement("input", {
+    type: "number",
     disable: disable.toString(),
     onChange: function onChange(e) {
       return _onChange(e.target.value);
     },
-    type: "text",
     id: id,
     className: "slds-input",
     placeholder: "0.00",
@@ -5208,7 +5232,7 @@ var getCurrencyData = exports.getCurrencyData = function getCurrencyData() {
       method: "get"
     }).then(function (response) {
       if (!response.ok) {
-        throw Error(response.statusText);
+        dispatch(fetchError());
       }
 
       return response;
@@ -5846,6 +5870,91 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ErrorUX = function ErrorUX(_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    "div",
+    {
+      className: "slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error",
+      role: "alert"
+    },
+    _react2.default.createElement(
+      "span",
+      { className: "slds-assistive-text" },
+      "error"
+    ),
+    _react2.default.createElement(
+      "h2",
+      null,
+      children
+    ),
+    _react2.default.createElement(
+      "button",
+      {
+        className: "slds-button slds-button_icon slds-notify__close slds-button_icon-inverse",
+        title: "Close"
+      },
+      _react2.default.createElement(
+        "span",
+        { className: "slds-assistive-text" },
+        "Close"
+      )
+    )
+  );
+};
+
+ErrorUX.propTypes = {
+  children: _propTypes2.default.node.isRequired
+};
+exports.default = ErrorUX;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Loading = function Loading() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "Loading..."
+  );
+};
+exports.default = Loading;
 
 /***/ })
 ],[63]);

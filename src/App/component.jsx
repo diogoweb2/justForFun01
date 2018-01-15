@@ -5,6 +5,8 @@ import SelectCurrency from "../components/SelectCurrency";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
 import "./component.scss";
+import ErrorUX from "../components/ErrorUX";
+import Loading from "../components/Loading";
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,11 +25,17 @@ class App extends React.Component {
       setCurrencyOut,
       dataLoaded,
       setModalDisclaimer,
-      showModalDisclaimer
+      showModalDisclaimer,
+      apiError
     } = this.props;
-    return !dataLoaded ? (
-      <div>loading...</div>
-    ) : (
+
+    if (apiError) {
+      return <ErrorUX> Generic error msg for API failure.... </ErrorUX>;
+    }
+    if (!dataLoaded) {
+      return <Loading />;
+    }
+    return (
       <div className="currencyWrap">
         <h1>Currency Converter</h1>
         <div className="slds-grid slds-gutters slds-wrap">
@@ -85,7 +93,8 @@ App.propTypes = {
   getCurrencyData: PropTypes.func.isRequired,
   dataLoaded: PropTypes.bool.isRequired,
   setModalDisclaimer: PropTypes.func.isRequired,
-  showModalDisclaimer: PropTypes.bool.isRequired
+  showModalDisclaimer: PropTypes.bool.isRequired,
+  apiError: PropTypes.bool.isRequired
 };
 
 export default App;

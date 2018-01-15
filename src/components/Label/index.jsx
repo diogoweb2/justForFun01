@@ -7,6 +7,9 @@ const Label = ({ children, htmlFor }) => (
 
 Label.propTypes = {
   children: PropTypes.node.isRequired,
+  /**
+   * htmlFor - related input id
+   */
   htmlFor: PropTypes.string.isRequired
 };
 

@@ -4,6 +4,7 @@ const defaultState = {
   currencyIn: "CAD",
   currencyOut: "USD",
   dataLoaded: false,
+  apiError: false,
   showModalDisclaimer: false,
   currencyData: {
     date: "2018-01-12",
@@ -49,6 +50,10 @@ const currencyReducer = (state = defaultState, action) => {
     case "SET_HANDLE_DISCLAIMER_MODAL":
       return Object.assign({}, state, {
         showModalDisclaimer: !state.showModalDisclaimer
+      });
+    case "FETCH_API_ERROR":
+      return Object.assign({}, state, {
+        apiError: true
       });
 
     default:

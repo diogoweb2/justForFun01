@@ -40,9 +40,18 @@ const Modal = ({ title, children, handleVisibility, show }) => {
 };
 
 Modal.propTypes = {
+  /**
+   * Modal Title
+   */
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  /**
+   * event to handle open/close
+   */
   handleVisibility: PropTypes.func.isRequired,
+  /**
+   * show or hide
+   */
   show: PropTypes.bool
 };
 

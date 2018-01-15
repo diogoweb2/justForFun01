@@ -11,16 +11,25 @@ import {
   setModalDisclaimer
 } from "../actions/currencyActions";
 
-const calc = (currencyOut, currencyIn, currencyValIn, currencyData) => {
+/**
+ *Calculate exchange
+ *
+ * @param {number} currencyOut - currency to be converted
+ * @param {string} currencyIn - original currency
+ * @param {number} currencyValIn - value to be converted
+ * @param {array} currencyData
+ * @returns {number}
+ */
+function calc(currencyOut, currencyIn, currencyValIn, currencyData) {
   try {
     const rate =
       currencyData.rates[currencyOut] / currencyData.rates[currencyIn];
 
     return (rate * currencyValIn).toFixed(2);
-  } catch (error) {
+  } catch (err) {
     return 0;
   }
-};
+}
 const mapStateToProps = state => {
   const {
     currencyOut,
@@ -28,7 +37,8 @@ const mapStateToProps = state => {
     currencyValIn,
     currencyData,
     dataLoaded,
-    showModalDisclaimer
+    showModalDisclaimer,
+    apiError
   } = state;
 
   return {
@@ -37,7 +47,8 @@ const mapStateToProps = state => {
     currencyIn,
     currencyValIn,
     dataLoaded,
-    showModalDisclaimer
+    showModalDisclaimer,
+    apiError
   };
 };
 

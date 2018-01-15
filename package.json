@@ -1,12 +1,14 @@
 {
-  "name": "ra2017",
+  "name": "hd2018",
   "version": "1.0.0",
   "description": "Front End Project for ReloAccess",
   "main": "lib/index.js",
   "scripts": {
     "prestart": "webpack",
     "start": "webpack-dev-server",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "keywords": [],
   "author": "Diogo Lopes",
@@ -38,14 +40,8 @@
     ],
     "env": {
       "test": {
-        "presets": [
-          "es2015",
-          "stage-2",
-          "react"
-        ],
-        "plugins": [
-          "transform-es2015-modules-commonjs"
-        ]
+        "presets": ["es2015", "stage-2", "react"],
+        "plugins": ["transform-es2015-modules-commonjs"]
       }
     }
   },
@@ -56,18 +52,15 @@
       "<rootDir>/dist/",
       "<rootDir>/STYLES/"
     ],
-    "snapshotSerializers": [
-      "jest-serializer-html"
-    ],
+    "snapshotSerializers": ["jest-serializer-html"],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/tools/assetsTransformer.js",
       "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js",
       "^__GLOBAL__(.*)$": "<rootDir>/src/global/$1",
       "^__SHARED__(.*)$": "<rootDir>/src/sharedJSX/$1"
     },
-    "setupFiles": [
-      "./tools/enzymeTestAdapterSetup.js"
-    ]
+    "setupFiles": ["./tools/enzymeTestAdapterSetup.js"]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -111,6 +104,7 @@
     "node-sass": "^4.7.2",
     "react-addons-test-utils": "^15.6.2",
     "react-css-modules": "^4.5.2",
+    "react-styleguidist": "^6.1.0",
     "react-test-renderer": "^16.2.0",
     "redux-mock-store": "^1.4.0",
     "sass-loader": "^6.0.6",

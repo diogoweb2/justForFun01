@@ -17,7 +17,7 @@ export const getCurrencyData = () => dispatch => {
   })
     .then(response => {
       if (!response.ok) {
-        throw Error(response.statusText);
+        dispatch(fetchError());
       }
 
       return response;

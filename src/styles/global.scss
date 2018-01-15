@@ -1,0 +1,9 @@
+$font-stack: Helvetica, sans-serif;
+$border-box-color: rgb(153, 153, 153);
+$h1-size: 2em;
+
+%wrap-box {
+  border: 1px solid $border-box-color;
+  background: rgb(236, 232, 232);
+  padding: 1em;
+}
