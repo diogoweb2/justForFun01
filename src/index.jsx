@@ -8,15 +8,24 @@ import reducer from "./reducers/currencyReducer";
 
 import App from "./App";
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
-);
+// const store = createStore(
+//   reducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+//   applyMiddleware(thunk)
+// );
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.querySelector(".currencyApp")
-);
+const testClassToRender = document.querySelectorAll(".currencyApp");
+
+let store;
+
+for (let i = 0; i < testClassToRender.length; i += 1) {
+  store = createStore(reducer, applyMiddleware(thunk));
+  render(
+    <div>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </div>,
+    testClassToRender[i]
+  );
+}

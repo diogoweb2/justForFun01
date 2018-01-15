@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const InputCurrency = ({ value, onChange, readonly }) => (
+const InputCurrency = ({ value, onChange, disable, id }) => (
   <input
-    readOnly={readonly}
+    disable={disable}
     onChange={e => onChange(e.target.value)}
     type="text"
+    id={id}
+    className="slds-input"
+    placeholder="0"
     value={value}
   />
 );
@@ -13,13 +16,14 @@ const InputCurrency = ({ value, onChange, readonly }) => (
 InputCurrency.propTypes = {
   value: PropTypes.number,
   onChange: PropTypes.func,
-  readonly: PropTypes.bool
+  disable: PropTypes.bool,
+  id: PropTypes.string.isRequired
 };
 
 InputCurrency.defaultProps = {
   value: 0,
   onChange: null,
-  readonly: false
+  disable: false
 };
 
 export default InputCurrency;

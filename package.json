@@ -4,14 +4,11 @@
   "description": "Front End Project for ReloAccess",
   "main": "lib/index.js",
   "scripts": {
-    "start":
-      "SET NODE_ENV=development && yarn install &&  yarn run startWebpackDevServ",
-    "startWebpackDevServ":
-      "webpack-dev-server --progress --colors --config ./webpack.config.js",
+    "start": "SET NODE_ENV=development && yarn install &&  yarn run startWebpackDevServ",
+    "startWebpackDevServ": "webpack-dev-server --progress --colors --config ./webpack.config.js",
     "startWebpack": "webpack -w",
     "prod": "set NODE_ENV=production && webpack ",
     "test": "jest  --watch",
-
     "bundleAnalyzer": "webpack --profile --json > stats.json"
   },
   "keywords": [],
@@ -43,6 +40,7 @@
       "transform-es2015-modules-commonjs",
       "transform-class-properties",
       "transform-object-rest-spread",
+      "transform-object-assign",
       [
         "module-resolver",
         {
@@ -55,7 +53,11 @@
     ],
     "env": {
       "test": {
-        "presets": ["es2015", "stage-2", "react"],
+        "presets": [
+          "es2015",
+          "stage-2",
+          "react"
+        ],
         "plugins": [
           "transform-es2015-modules-commonjs",
           "dynamic-import-node",
@@ -71,15 +73,18 @@
       "<rootDir>/dist/",
       "<rootDir>/STYLES/"
     ],
-    "snapshotSerializers": ["jest-serializer-html"],
+    "snapshotSerializers": [
+      "jest-serializer-html"
+    ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/tools/assetsTransformer.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
       "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js",
       "^__GLOBAL__(.*)$": "<rootDir>/src/global/$1",
       "^__SHARED__(.*)$": "<rootDir>/src/sharedJSX/$1"
     },
-    "setupFiles": ["./tools/enzymeTestAdapterSetup.js"]
+    "setupFiles": [
+      "./tools/enzymeTestAdapterSetup.js"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -95,6 +100,7 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -124,7 +130,6 @@
     "jest-serializer-html": "^5.0.0",
     "react-addons-test-utils": "^15.6.2",
     "react-css-modules": "^4.5.2",
-
     "react-test-renderer": "^16.2.0",
     "redux-mock-store": "^1.4.0",
     "sinon": "^4.1.3",
@@ -141,16 +146,13 @@
     "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
     "faker": "^4.1.0",
-
     "prop-types": "^15.5.10",
-
     "react": "^16.1",
     "react-dom": "^16.1",
     "react-redux": "^5.0.6",
-
     "redux": "^3.7.2",
-
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "false": {}
 }

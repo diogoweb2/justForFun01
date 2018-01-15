@@ -2,13 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const SelectCurrency = ({ currencies, onChange, value }) => (
-  <select value={value} onChange={e => onChange(e.target.value)}>
-    {currencies.map(currency => (
-      <option key={currency} value={currency}>
-        {currency}
-      </option>
-    ))}
-  </select>
+  <div className="slds-select_container">
+    <select
+      className="slds-select"
+      value={value}
+      onChange={e => onChange(e.target.value)}
+    >
+      {currencies.map(currency => (
+        <option key={currency} value={currency}>
+          {currency}
+        </option>
+      ))}
+    </select>
+  </div>
 );
 
 SelectCurrency.propTypes = {
