@@ -3,16 +3,13 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
+import ES6Promise from "es6-promise";
+import "whatwg-fetch";
 import thunk from "redux-thunk";
 import reducer from "./reducers/currencyReducer";
-
 import App from "./App";
 
-// const store = createStore(
-//   reducer,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-//   applyMiddleware(thunk)
-// );
+ES6Promise.polyfill();
 
 const testClassToRender = document.querySelectorAll(".currencyApp");
 

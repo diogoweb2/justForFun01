@@ -3,9 +3,7 @@
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
   "editor.snippetSuggestions": "top",
-
   "relativePath.removeExtension": true,
-
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -15,7 +13,7 @@
     "**/node_modules": true,
     "**/STYLES": true,
     "**/Layouts": true,
-    "**/dist": true,
+    "**/dist": false,
     "**/OE.SharePoint": true
   }
 }

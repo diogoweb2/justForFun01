@@ -1,13 +1,8 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
-// //const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
-// const MinifyPlugin = require("babel-minify-webpack-plugin");
 
-const prodLayoutFolder =
-  "../../Bgrs.RA.SP.Branding/Layouts/Bgrs.RA.SP.Branding/";
-const prodStyleFolder = "../../Bgrs.RA.SP.Branding/STYLES/";
 let isProd = false;
 if (process.env.NODE_ENV !== undefined) {
   isProd = process.env.NODE_ENV.trim() === "production";
@@ -55,16 +50,13 @@ module.exports = {
     ]
   },
 
-  devtool: "cheap-source-map",
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
   output: {
     path: `${__dirname}/dist`,
     publicPath: "/",
-    filename: isProd
-      ? `${prodLayoutFolder}[name].js`
-      : "../Layouts/JSWP/[name].js"
+    filename: "[name].js"
   },
   devServer: {
     overlay: {
@@ -74,24 +66,12 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ["react"],
-      chunks: ["HD"],
-      minChunks: 2
+      minChunks: Infinity
     }),
-    // new webpack.optimize.UglifyJsPlugin(),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: "vendor",
-    //   // filename: isProd
-    //   //   ? `${prodLayoutFolder}commons.js`
-    //   //   : "../Layouts/JSWP/commons.js",
-    //   // // chunks: ["hamburguerBtn2", "Menu"],
-    //   minChunks: function(module) {
-    //     // this assumes your vendor imports exist in the node_modules directory
-    //     return module.context && module.context.indexOf("node_modules") !== -1;
-    //   }
-    // }),
+
     new WriteFilePlugin(),
     new ExtractTextPlugin({
-      filename: isProd ? `${prodStyleFolder}[name].css` : "../STYLES/[name].css"
+      filename: "[name].css"
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -105,10 +85,7 @@ module.exports = {
         }
       }
     }),
-    // new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
-    //   //analyzerMode: "disabled"
-    //   analyzerMode: "server"
-    // }),
+
     new DuplicatePackageCheckerPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
 
@@ -116,7 +93,5 @@ module.exports = {
       DEV_ENV: JSON.stringify(!isProd),
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     })
-
-    // new MinifyPlugin()
   ]
 };

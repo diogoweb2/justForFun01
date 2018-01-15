@@ -28,7 +28,7 @@ npm manifest:
       "bundleAnalyzer": "webpack --profile --json > stats.json"
     },
     "keywords": [],
-    "author": "BGRS",
+    "author": "Diogo",
     "license": "UNLICENSED",
     "babel": {
       "presets": [

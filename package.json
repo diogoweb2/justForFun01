@@ -4,15 +4,12 @@
   "description": "Front End Project for ReloAccess",
   "main": "lib/index.js",
   "scripts": {
-    "start": "SET NODE_ENV=development && yarn install &&  yarn run startWebpackDevServ",
-    "startWebpackDevServ": "webpack-dev-server --progress --colors --config ./webpack.config.js",
-    "startWebpack": "webpack -w",
-    "prod": "set NODE_ENV=production && webpack ",
-    "test": "jest  --watch",
-    "bundleAnalyzer": "webpack --profile --json > stats.json"
+    "prestart": "webpack",
+    "start": "webpack-dev-server",
+    "build": "webpack -p"
   },
   "keywords": [],
-  "author": "BGRS",
+  "author": "Diogo Lopes",
   "license": "UNLICENSED",
   "babel": {
     "presets": [
@@ -34,35 +31,11 @@
       ],
       "react"
     ],
-    "plugins": [
-      "syntax-dynamic-import",
-      "dynamic-import-node",
-      "transform-es2015-modules-commonjs",
-      "transform-class-properties",
-      "transform-object-rest-spread",
-      "transform-object-assign",
-      [
-        "module-resolver",
-        {
-          "alias": {
-            "__GLOBAL__": "./src/global",
-            "__SHARED__": "./src/sharedJSX"
-          }
-        }
-      ]
-    ],
+    "plugins": ["transform-object-rest-spread", "transform-object-assign"],
     "env": {
       "test": {
-        "presets": [
-          "es2015",
-          "stage-2",
-          "react"
-        ],
-        "plugins": [
-          "transform-es2015-modules-commonjs",
-          "dynamic-import-node",
-          "syntax-dynamic-import"
-        ]
+        "presets": ["es2015", "stage-2", "react"],
+        "plugins": ["transform-es2015-modules-commonjs"]
       }
     }
   },
@@ -73,18 +46,15 @@
       "<rootDir>/dist/",
       "<rootDir>/STYLES/"
     ],
-    "snapshotSerializers": [
-      "jest-serializer-html"
-    ],
+    "snapshotSerializers": ["jest-serializer-html"],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/tools/assetsTransformer.js",
       "\\.(css|less)$": "<rootDir>/tools/assetsTransformer.js",
       "^__GLOBAL__(.*)$": "<rootDir>/src/global/$1",
       "^__SHARED__(.*)$": "<rootDir>/src/sharedJSX/$1"
     },
-    "setupFiles": [
-      "./tools/enzymeTestAdapterSetup.js"
-    ]
+    "setupFiles": ["./tools/enzymeTestAdapterSetup.js"]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -93,7 +63,6 @@
     "babel-jest": "^22.0.4",
     "babel-loader": "^7.1.1",
     "babel-minify-webpack-plugin": "^0.2.0",
-    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-plugin-react-css-modules": "^3.1.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -106,9 +75,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "check-dependencies": "^1.0.1",
-    "concurrently": "^3.5.1",
+
     "css-loader": "^0.28.4",
-    "doiuse": "^4.0.0",
+
     "duplicate-package-checker-webpack-plugin": "^2.0.1",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -140,12 +109,8 @@
     "write-file-webpack-plugin": "^4.0.0"
   },
   "dependencies": {
-    "axios": "^0.17.1",
-    "axios-cache-adapter": "^2.0.0",
-    "axios-mock-adapter": "^1.10",
-    "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
-    "faker": "^4.1.0",
+
     "prop-types": "^15.5.10",
     "react": "^16.1",
     "react-dom": "^16.1",
@@ -153,6 +118,5 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "whatwg-fetch": "^2.0.3"
-  },
-  "false": {}
+  }
 }
