@@ -18,6 +18,8 @@ yarn install
 yarn start
 ```
 
+* _tested on Windows only_
+
 ## Running the tests
 
 Tests implemented using Jest/Enzyme
