@@ -4972,7 +4972,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var SelectCurrency = function SelectCurrency(_ref) {
   var currencies = _ref.currencies,
       _onChange = _ref.onChange,
-      value = _ref.value;
+      value = _ref.value,
+      hiddenTitle = _ref.hiddenTitle;
   return _react2.default.createElement(
     "div",
     { className: "slds-select_container" },
@@ -4983,7 +4984,9 @@ var SelectCurrency = function SelectCurrency(_ref) {
         value: value,
         onChange: function onChange(e) {
           return _onChange(e.target.value);
-        }
+        },
+        "aria-label": hiddenTitle,
+        title: hiddenTitle
       },
       currencies.map(function (currency) {
         return _react2.default.createElement(
@@ -4999,7 +5002,11 @@ var SelectCurrency = function SelectCurrency(_ref) {
 SelectCurrency.propTypes = {
   currencies: _propTypes2.default.array,
   onChange: _propTypes2.default.func,
-  value: _propTypes2.default.string
+  value: _propTypes2.default.string,
+  /**
+   * accessibility label
+   */
+  hiddenTitle: _propTypes2.default.string.isRequired
 };
 
 SelectCurrency.defaultProps = {
