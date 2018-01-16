@@ -2,6 +2,10 @@
 
 Currency convert implemented in React/Redux
 
+## Demo
+
+https://diogoweb2.github.io/justForFun01/
+
 ## Installing
 
 Clone repository and run:
