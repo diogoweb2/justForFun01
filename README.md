@@ -1,4 +1,4 @@
-# Project Title
+# Currency convert
 
 Currency convert implemented in React/Redux
 
