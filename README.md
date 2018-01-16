@@ -38,6 +38,7 @@ yarn run styleguide
 
 ## Next iteration/missing features
 
+* [ ] Currency values only change once a day 4PM CET. Add a shouldUpdateAPI logic to check local user time.
 * [ ] Add 2 ways currency converter
 * [ ] Add integration tests - to test components interation
 * [ ] Lightning Design Sytem - Migrate current implementation (css file) to use react LDS components (using tree-shaking to reduce bundle size) - https://react.lightningdesignsystem.com/getting-started/
