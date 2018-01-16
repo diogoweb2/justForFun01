@@ -39,6 +39,7 @@ yarn run styleguide
 * [ ] Add 2 ways currency converter
 * [ ] Add integration tests - to test components interation
 * [ ] Lightning Design Sytem - Migrate current implementation (css file) to use react LDS components (using tree-shaking to reduce bundle size) - https://react.lightningdesignsystem.com/getting-started/
+* [ ] encapsulate grids(div) to a component
 * [ ] webpack/package.json cleanup
 
 ## Built With
